@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="image" fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../../../../../Desktop/馬力歐香菇/馬力歐.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="startbutton" contentDisplay="CENTER" layoutX="247.0" layoutY="200.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="129.0" text="Play" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="stopbutton" layoutX="247.0" layoutY="295.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="129.0" text="stop" />
+      <Text fx:id="text" fill="#2d0af0ed" layoutX="123.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Super Mario Go " wrappingWidth="434.65576171875">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
