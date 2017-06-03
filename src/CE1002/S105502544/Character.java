@@ -29,7 +29,7 @@ public class Character extends Pane{
         getChildren().addAll(this.imageView);
     }
 
-    public void moveX(int value){
+    public boolean moveX(int value){
         boolean movingRight = value > 0;
         for(int i = 0; i<Math.abs(value); i++) {
             for (Node platform : Game.platforms) {
@@ -37,18 +37,19 @@ public class Character extends Pane{
                     if (movingRight) {
                         if (this.getTranslateX() + Game.MARIO_SIZE == platform.getTranslateX()){
                             this.setTranslateX(this.getTranslateX() - 1);
-                            return;
+                            return false;
                         }
                     } else {
                         if (this.getTranslateX() == platform.getTranslateX() + Game.BLOCK_SIZE) {
                             this.setTranslateX(this.getTranslateX() + 1);
-                            return;
+                            return false;
                         }
                     }
                 }
             }
             this.setTranslateX(this.getTranslateX() + (movingRight ? 1 : -1));
         }
+        return true;
     }
     public void moveY(int value){
         boolean movingDown = value >0;

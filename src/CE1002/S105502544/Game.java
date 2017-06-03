@@ -31,6 +31,7 @@ public class Game extends Application {
     public static Pane gameRoot = new Pane();
 
     public Character player;
+    public Monster monster1;
     int levelNumber = 0;
     private int levelWidth;
 
@@ -81,9 +82,19 @@ public class Game extends Application {
                 backgroundIV.setLayoutX(-(offset-640));
             }
         });
+        
+        monster1 = new Monster();
+        monster1.setTranslateX(800);
+        monster1.setTranslateY(530);       
+
+        
         gameRoot.getChildren().add(player);
+        gameRoot.getChildren().add(monster1);
+
         appRoot.getChildren().addAll(backgroundIV,gameRoot);
-    }
+        
+
+     }
 
     private void update(){
         if(isPressed(KeyCode.UP) && player.getTranslateY()>=5){
@@ -103,6 +114,14 @@ public class Game extends Application {
            player.playerVelocity = player.playerVelocity.add(0,1);
         }
         player.moveY((int)player.playerVelocity.getY());
+        
+        
+        if(monster1.playerVelocity.getY()<10){
+        	monster1.playerVelocity = player.playerVelocity.add(0,1);
+         }
+        monster1.moveY((int)monster1.playerVelocity.getY());
+        monster1.Swing();
+
     }
     private boolean isPressed(KeyCode key){
         return keys.getOrDefault(key,false);
