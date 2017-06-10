@@ -9,18 +9,18 @@ import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 public class Character extends Pane{
-    Image marioImg = new Image(getClass().getResourceAsStream("super-mario-enemies-2x.png"));
+    Image marioImg = new Image(getClass().getResourceAsStream("mario.png"));
     ImageView imageView = new ImageView(marioImg);
-    int count = 2;
+    int count = 3;
     int columns = 3;
-    int offsetX = 0;
-    int offsetY = 32;
-    int width = 32;
+    int offsetX = 80;
+    int offsetY = 96;
+    int width = 16;
     int height = 32;
     public SpriteAnimation animation;
     public Point2D playerVelocity = new Point2D(0,0);
-    private boolean canJump = true;
-
+    public boolean canJump = true;
+    public Mushroom mushroom;
     public Character(){
         imageView.setFitHeight(40);
         imageView.setFitWidth(40);
@@ -66,6 +66,11 @@ public class Character extends Pane{
                     else{
                         if(this.getTranslateY() == platform.getTranslateY()+ Game.BLOCK_SIZE){
                             this.setTranslateY(this.getTranslateY()+1);
+                            if(platform.type == Block.BlockType.BONUS && platform.touched==false){
+                            	platform.animation.play();
+                            	platform.touched = true;
+                            }
+                            	
                             playerVelocity = new Point2D(0,10);
                             return;
                         }

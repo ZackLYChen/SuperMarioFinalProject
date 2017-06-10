@@ -43,7 +43,8 @@ public class Monster extends Character{
                 }
 
             }
-            this.setTranslateX(this.getTranslateX() + (movingRight ? 1 : -1));
+            if(this.getTranslateX()>0)
+            	this.setTranslateX(this.getTranslateX() + (movingRight ? 1 : -1));
         	return true;
 
         }
