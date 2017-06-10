@@ -33,7 +33,7 @@ public class Block extends Pane {
             case BONUS:
                 block.setViewport(new Rectangle2D(384, 0, 16, 16));
                 animation = new SpriteAnimation(block,Duration.millis(200),4,4,384,0,16,16);
-                animation.setCycleCount(1);
+                animation.setCycleCount(1); 
                 break;
             case PIPE_TOP:
                 block.setViewport(new Rectangle2D(0, 128, 32, 16));

@@ -1,5 +1,7 @@
 package CE1002.S105502544;
 
+import CE1002.S105502544.Block.BlockType;
+import javafx.animation.Animation;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
@@ -21,6 +23,7 @@ public class Character extends Pane{
     public Point2D playerVelocity = new Point2D(0,0);
     public boolean canJump = true;
     public Mushroom mushroom;
+	Anima animationOfCoin;
     public Character(){
         imageView.setFitHeight(40);
         imageView.setFitWidth(40);
@@ -66,9 +69,12 @@ public class Character extends Pane{
                     else{
                         if(this.getTranslateY() == platform.getTranslateY()+ Game.BLOCK_SIZE){
                             this.setTranslateY(this.getTranslateY()+1);
+                        	
                             if(platform.type == Block.BlockType.BONUS && platform.touched==false){
                             	platform.animation.play();
                             	platform.touched = true;
+                            	animationOfCoin = new Anima((int)platform.getTranslateX(),(int)platform.getTranslateY()-45);
+                            	animationOfCoin.play();
                             }
                             	
                             playerVelocity = new Point2D(0,10);
